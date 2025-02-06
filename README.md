@@ -22,7 +22,7 @@
 |                                      FE developer                                       |                                  FE Developer                                   |
 |:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
 |                       [강예린](https://github.com/rkddpfls02)                        |                      [오태준](https://github.com/taejun0)                          |
-| <img src="https://avatars.githubusercontent.com/u/118972548?v=4" width="300" /> | <img src="https://avatars.githubusercontent.com/u/140104885?v=4" width="300" /> |
+| <img src="https://avatars.githubusercontent.com/u/138271153?v=4" width="300" /> | <img src="https://avatars.githubusercontent.com/u/164321668?v=4" width="300" /> |
 
 ## 🛠️ 기술 스택(Tech)
 ![React](https://img.shields.io/badge/react-61dafb?style=for-the-badge&logo=react&logoColor=black)
