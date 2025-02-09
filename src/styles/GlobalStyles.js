@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 *{box-sizing:border-box}
 body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {margin:0;padding:0}
-body, button, input, select, table, textarea {font-size:12px;line-height:16px;color:#202020;font-family: "NanumSquareRoundR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, sans-serif}
+body, button, input, select, table, textarea {font-size:12px;line-height:16px;color:#202020;font-family: "PretendardR", sans-serif}
 h1, h2, h3, h4, h5, h6 {font-size:inherit;line-height:inherit}
 textarea {-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:transparent;border:0;word-break:keep-all;word-wrap:break-word}
 button, input {-webkit-border-radius:0;border-radius:0;border:0}
@@ -24,42 +24,87 @@ i {font-style:normal}
 	min-height: 100vh;
 }
 
-// 애플 SD 산돌고딕 Neo 폰트 설정
+/* Pretendard */
+
+/* Black */
 @font-face {
-    font-family: "AppleSDGothicNeoH00";
-    src: url("/fonts/AppleSDGothicNeoH.ttf") format("truetype");
+  font-family: "PretendardBK";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Black.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
 }
 
+/* Bold */
 @font-face {
-    font-family: "AppleSDGothicNeoB00";
-    src: url("/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+  font-family: "PretendardB";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Bold.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
+/* ExtraBold */
 @font-face {
-    font-family: "AppleSDGothicNeoL00";
-    src: url("/fonts/AppleSDGothicNeoL.ttf") format("truetype");
+  font-family: "PretendardEB";
+  src: url("/fonts/Pretendard/woff2/Pretendard-ExtraBold.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
 }
 
+/* Regular */
 @font-face {
-    font-family: "AppleSDGothicNeoUL00";
-    src: url("/fonts/AppleSDGothicNeoUL.ttf") format("truetype");
+  font-family: "PretendardR";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Regular.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
+/* SemiBold */
 @font-face {
-    font-family: "AppleSDGothicNeoT0C";
-    src: url("/fonts/AppleSDGothicNeoT.ttf") format("truetype");
+  font-family: "PretendardSB";
+  src: url("/fonts/Pretendard/woff2/Pretendard-SemiBold.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
+
+/* Medium */
 @font-face {
-    font-family: "AppleSDGothicNeoR00";
-    src: url("/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+  font-family: "PretendardM";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Medium.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
 }
+
+/* Light */
 @font-face {
-    font-family: "AppleSDGothicNeoM00";
-    src: url("/fonts/AppleSDGothicNeoM.ttf") format("truetype");
+  font-family: "PretendardL";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Light.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
+
+/* ExtraLight */
 @font-face {
-    font-family: "NanumSquareRoundOTF";
-    src: url("/fonts/NanumSquareRoundOTFB.ttf") format("truetype");
+  font-family: "PretendardEL";
+  src: url("/fonts/Pretendard/woff2/Pretendard-ExtraLight.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Thin */
+@font-face {
+  font-family: "PretendardT";
+  src: url("/fonts/Pretendard/woff2/Pretendard-Thin.woff2") format("woff2"),
+       url("/fonts/Pretendard/woff/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
 }
 
 
@@ -85,7 +130,7 @@ body {
 	overflow-x: hidden;
 	background-color: ${({ theme }) => theme.colors.white};
 	color: ${({ theme }) => theme.colors.default};
-	font-family: sans-serif;
+	font-family: "PretendardR", sans-serif;
 }
 
 `;
