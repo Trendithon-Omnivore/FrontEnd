@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-
+import { TfiClose } from "react-icons/tfi";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const ConTitle = styled.div`
 
   ${({ theme }) => theme.fonts.PretendardM};
   font-size: 0.875rem; /* 14px */
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme, $errorMessage }) => $errorMessage ? theme.colors.red : theme.colors.black};
 
   @media (max-width: 360px) {
     top: -7px;
@@ -31,7 +31,7 @@ export const Container = styled.input`
   width: calc(100% - 60px);
   height: 3.25rem; /* 52px */
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid ${({ theme, $errorMessage }) => $errorMessage ? theme.colors.red : theme.colors.black};
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,25 +46,63 @@ export const Container = styled.input`
     font-size: 0.875rem; /* 14px */
     color: ${({ theme }) => theme.colors.graytext};
   }
+
+  ${({ $readOnly }) => $readOnly && `
+    cursor: not-allowed;
+  `}
 `;
 
 export const Eye = styled(FiEye)`
   width: 24px;
   height: 24px;
+
+  cursor: pointer;
+
+  @media (max-width: 360px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const Eyeoff = styled(FiEyeOff)`
   width: 24px;
   height: 24px;
+
+  cursor: pointer;
+
+  @media (max-width: 360px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
-export const ToggleButton = styled.div`
+export const closeIcon = styled(TfiClose)`
+  width: 24px;
+  height: 24px;
+  
+  cursor: pointer;
+
   position: absolute;
   top: 13px;
   right: 40px;
 
   @media (max-width: 360px) {
-    top: 8px;
+    width: 16px;
+    height: 16px;
+
+    top: 11px;
+    right: 38px;
+  }
+`;
+
+export const ToggleButton = styled.div`
+  position: absolute;
+  top: 13px;
+  right: 70px;
+
+  @media (max-width: 360px) {
+    top: 11px;
+    right: 60px;
   }
 `;
 
