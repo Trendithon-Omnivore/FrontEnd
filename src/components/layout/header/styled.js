@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
 export const LogoImage = styled.img`
   width: 110px;
   height: 30px;
+
+  cursor: pointer;
 `;
 
 export const ArrowBack = styled(IoIosArrowBack)`
@@ -23,4 +25,6 @@ export const ArrowBack = styled(IoIosArrowBack)`
   height: 24px;
   width: 24px;
   left: 10px;
+
+  cursor: pointer;
 `;

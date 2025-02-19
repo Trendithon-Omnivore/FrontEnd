@@ -1,32 +1,31 @@
 import * as S from "./styled";
 import { useState } from "react";
+import useSignup from "@hooks/useSignup";
 import { InputwithTitle } from "@components/common/inputs/inputwithtitle/InputwithTitle";
+import { Footer } from "@components/layout/footer/footer1/Footer";
+import { SignupModal } from "@components/common/\bsignupmodal/SignupModal";
 
 export const SignupPage = () => {
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handlePasswordConfirmChange = (e) => {
-    setPasswordConfirm(e.target.value);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword((prevState) => !prevState);
-  };
-
-  const handleInputChange = (e) => {
-    console.log(e.target.value);
-  };
+  const {
+    username,
+    password,
+    passwordConfirm,
+    nickname,
+    showPassword,
+    showConfirmPassword,
+    errors,
+    handleUsernameChange,
+    handlePasswordChange,
+    handlePasswordConfirmChange,
+    togglePasswordVisibility,
+    toggleConfirmPasswordVisibility,
+    clearPassword,
+    clearPasswordConfirm,
+    generateRandomNickname,
+    isSignupEnabled,
+    handleSignup,
+    isSignupSuccess,
+  } = useSignup();
 
   return (
     <S.Wrapper>
@@ -34,7 +33,9 @@ export const SignupPage = () => {
       <InputwithTitle 
         title = "아이디"
         placeholder = "영문 또는 숫자 조합 8자 이상"
-        onInputChange={handleInputChange} 
+        onInputChange={handleUsernameChange}
+        value={username}
+        errorMessage={errors.username}
       />
       <InputwithTitle 
         title = "비밀번호"
@@ -43,6 +44,9 @@ export const SignupPage = () => {
         type={showPassword ? "text" : "password"}
         showPassword={showPassword}
         togglePasswordVisibility={togglePasswordVisibility}
+        clearInput={clearPassword}
+        value={password}
+        errorMessage={errors.password}
       />
       <InputwithTitle 
         title = "비밀번호 확인"
@@ -52,6 +56,9 @@ export const SignupPage = () => {
         showPassword={showConfirmPassword}
         togglePasswordVisibility={toggleConfirmPasswordVisibility}
         showError={password != passwordConfirm}
+        clearInput={clearPasswordConfirm}
+        value={passwordConfirm}
+        errorMessage={errors.passwordConfirm}
       />
       <S.Row
         $showError={password != passwordConfirm}
@@ -59,12 +66,22 @@ export const SignupPage = () => {
         <InputwithTitle 
           title = "닉네임"
           placeholder = "직접 설정할 수 없으며, 랜덤 생성됩니다."
-          onInputChange={handleInputChange} 
+          value={nickname}
+          readOnly
         />
-        <S.IconBox>
+        <S.IconBox
+          onClick={generateRandomNickname}
+        >
           <S.rotateIcon />
         </S.IconBox>
       </S.Row>  
+      <Footer 
+        isSignupEnabled={isSignupEnabled}
+        onSignupClick={handleSignup}
+      />
+      {isSignupSuccess && (
+        <SignupModal />
+      )}
     </S.Wrapper>
   )
 }
