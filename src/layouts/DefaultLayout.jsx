@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Header } from "@components/layout/header/Header";
 
 export const DefaultLayout = () => {
+  const location = useLocation();
   return (
     <>
       <Wrapper>

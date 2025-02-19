@@ -21,8 +21,6 @@ export const Row = styled.div`
   display: flex;
   width: calc(100% - 58px);
   position: relative;
-
-  margin-top: ${({ $showError }) => $showError ? "0.5rem" : "none"};
 `;
 
 export const IconBox = styled.div`
@@ -38,6 +36,8 @@ export const IconBox = styled.div`
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.lightbluegray};
 
+  cursor: pointer;
+  
   @media (max-width: 360px) {
     width: 40px;
     height: 40px;
