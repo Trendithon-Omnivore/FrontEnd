@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  position: absolute;
+  position: ${({ $isSignup }) => $isSignup ? "absolute" : "relative"};
   width: 100%;
   height: 100px;
   bottom: 0;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20.75rem;
+  width: calc(100% - 60px);
   height: 4rem;
 
   position: absolute;
@@ -29,3 +29,4 @@ export const Container = styled.div`
 
   ${({ theme }) => theme.fonts.PretendardSB};
 `;
+

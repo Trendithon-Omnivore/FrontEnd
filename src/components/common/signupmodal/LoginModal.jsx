@@ -11,7 +11,7 @@ export const LoginModal = () => {
       <S.NoticeBox>
         <S.Notice>로그인 완료!</S.Notice>
       </S.NoticeBox>
-      <S.Container onClick={() => goToPage("/home")}>
+      <S.Container onClick={() => goToPage("/main")}>
         시작하기
       </S.Container>
     </S.Wrapper>
