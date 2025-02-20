@@ -2,7 +2,6 @@ import * as S from "./styled";
 import Left from "/images/main/Left.svg";
 import Right from "/images/main/Right.svg";
 import Arrow from "/images/main/Arrow.svg";
-import { MainFooter } from "@components/layout/footer/mainfooter/mainfooter";
 import useCustomNavigate from "@hooks/useCustomNavigate";
 
 export const MainPage = () => {
@@ -39,7 +38,6 @@ export const MainPage = () => {
         <S.CardSubmitArrow src={Arrow} />
       </S.CardSubmit>
       <S.SubTitle>경험의 가치를 알아봐요</S.SubTitle>
-      <MainFooter />
     </S.Wrapper>
   )
 }
