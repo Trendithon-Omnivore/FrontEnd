@@ -1,14 +1,15 @@
 import * as S from "./styled";
 
-export const Footer = ({ isSignupEnabled, onSignupClick }) => {
+export const Footer = ({ content, isSignup, isSignupEnabled, onSignupClick }) => {
 
   return (
     <S.Wrapper>
       <S.Container
+        $isSignup = {isSignup}
         $enabled = {isSignupEnabled}
         onClick={onSignupClick}
       >
-        가입하기
+        {content}
       </S.Container>
 
     </S.Wrapper>

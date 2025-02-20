@@ -76,6 +76,8 @@ export const SignupPage = () => {
         </S.IconBox>
       </S.Row>  
       <Footer 
+        isSignup={true}
+        content="가입하기"
         isSignupEnabled={isSignupEnabled}
         onSignupClick={handleSignup}
       />
