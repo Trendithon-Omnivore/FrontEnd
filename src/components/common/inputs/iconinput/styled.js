@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 
 export const Title = styled.div`
   ${({ theme }) => theme.fonts.PretendardR};
-  width: calc(100% - 60px);
+  width: 85%;
 `;
 
 export const AddIconButton = styled.div`
   display: flex;
-  width: ${({ $selectedEmoji }) => ($selectedEmoji ? "75px" : "calc(100% - 60px)")};
+  width: ${({ $selectedEmoji }) => ($selectedEmoji ? "75px" : "85%")};
   height: ${({ $selectedEmoji }) => ($selectedEmoji ? "75px" : "3.25rem")}; /* 52px */
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.black};

@@ -5,7 +5,7 @@ export const Button = styled.div`
   display: flex;
   position: absolute;
   bottom: 20px;
-  width: calc(100% - 60px);
+  width: 85%;
   height: 60px;
   border-radius: 65px;
   color: ${({ theme }) => theme.colors.white};

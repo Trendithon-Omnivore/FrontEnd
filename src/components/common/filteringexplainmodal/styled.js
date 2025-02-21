@@ -4,7 +4,16 @@ import modalback from "/images/apply/modalback.svg";
 
 export const Wrapper = styled.div`
   display: flex;
-
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 40px 40px 0 0;
+  background: url("/images/apply/modalback.svg") lightgray 50% / cover no-repeat;
 `;
 
 export const CloseBack = styled.div`  
@@ -26,18 +35,11 @@ export const Icon24 = styled.img`
 `;
 
 export const ModalContent = styled.div`
-  width: 100%;
-
+  width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 549px;
-  border-radius: 40px 40px 0 0;
-  background: url("/images/apply/modalback.svg") lightgray 50% / cover no-repeat;
 `;
 
 export const thinkEmoji = styled.img`

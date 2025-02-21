@@ -28,7 +28,7 @@ export const ConTitle = styled.div`
 
 export const Container = styled.input`
   display: flex;
-  width: calc(100% - 60px);
+  width: 85%;
   height: 3.25rem; /* 52px */
   border-radius: 10px;
   border: 1px solid ${({ theme, $errorMessage }) => $errorMessage ? theme.colors.red : theme.colors.black};

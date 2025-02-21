@@ -39,7 +39,7 @@ export const NoticeContent2 = styled.div`
 
 export const CardSubmit = styled.div`
   display: flex;
-  width: calc(90%);
+  width: 85%;
   height: 60px;
   justify-content: center;
   align-items: center;
