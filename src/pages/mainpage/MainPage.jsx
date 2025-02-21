@@ -16,10 +16,9 @@ export const MainPage = () => {
       </S.Noticecontext>
       <S.NoticeImage src={Right}/>
       </S.NoticeGroup>
-      <S.CardSubmit>
-        <S.CardSubmitContent
-          onClick={() => goToPage("/apply")}
-        >내 경험 카드 등록하기</S.CardSubmitContent>
+      <S.CardSubmit
+        onClick={() => goToPage("/apply")}>
+        <S.CardSubmitContent>내 경험 카드 등록하기</S.CardSubmitContent>
         <S.CardSubmitArrow src={Arrow} />
       </S.CardSubmit>
 
@@ -31,10 +30,10 @@ export const MainPage = () => {
       </S.Noticecontext>
       <S.NoticeImage src={Right}/>
       </S.NoticeGroup>
-      <S.CardSubmit>
-        <S.CardSubmitContent
-          onClick={() => goToPage("/select")}
-        >다른 경험 카드 열람하기</S.CardSubmitContent>
+      <S.CardSubmit
+        onClick={() => goToPage("/select")}
+      >
+        <S.CardSubmitContent>다른 경험 카드 열람하기</S.CardSubmitContent>
         <S.CardSubmitArrow src={Arrow} />
       </S.CardSubmit>
       <S.SubTitle>경험의 가치를 알아봐요</S.SubTitle>

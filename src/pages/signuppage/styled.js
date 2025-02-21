@@ -19,7 +19,7 @@ export const SemiTitle = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  width: calc(100% - 58px);
+  width: 85%;
   position: relative;
 `;
 

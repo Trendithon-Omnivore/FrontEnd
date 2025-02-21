@@ -6,15 +6,17 @@ import plus from "/images/apply/plus.svg";
 import default_image from "/images/apply/cards/default.svg";
 
 import { useApply } from "@hooks/useApply";
+import useCustomNavigate from "@hooks/useCustomNavigate";
 import { ExplainBox } from "@components/common/explainbox/ExplainBox";
 import { IconInput } from "@components/common/inputs/iconinput/IconInput";
 import { InputAndTitle } from "@components/common/inputs/inputandtitle/InputAndTitle";
 import { FilteringExplainModal } from "@components/common/filteringexplainmodal/FIlteringExplainModal";
 import { Footer } from "@components/layout/footer/footer1/Footer";
-
+import { ChoiceModal } from "@components/common/choicemodal/ChoiceModal";
 
 export const ApplyPage = () => {
   const { ApplyData, ApplyHandlers } = useApply();
+  const { goToPage } = useCustomNavigate();
   const [isFlipped, setIsFlipped] = useState(false);
 
   const [step, setStep] = useState(1);
@@ -23,6 +25,11 @@ export const ApplyPage = () => {
 
   const handleCardFlip = () => setIsFlipped((prev) => !prev);
 
+  const titleExamples = ["하고 싶은 말", "팁", "가이드", "실행 동기", "내가 성장한 부분"];
+
+  const handleExampleClick = (exampleTitle) => {
+    ApplyHandlers.handleAddInput(exampleTitle);
+  };
 
   return (
     <S.Wrapper>
@@ -71,23 +78,39 @@ export const ApplyPage = () => {
 
           {/* 추가 입력 필드 */}
           {ApplyData.extraInputs.map((input) => (
-            <InputAndTitle
-              key={input.id}
-              isDynamic={true}
-              titleValue={input.title}
-              placeholder="내용을 입력해주세요."
-              inputValue={input.content}
-              onTitleChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "title", e.target.value)}
-              onInputChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "content", e.target.value)}
-              maxLength={100}
-            >
-              <S.RemoveButton onClick={() => ApplyHandlers.handleRemoveInput(input.id)}>삭제</S.RemoveButton>
-            </InputAndTitle>
+            <S.inputWrap key={input.id}>
+              <InputAndTitle
+                isDynamic={true}
+                titleValue={input.title}
+                placeholder="내용을 입력해주세요."
+                inputValue={input.content}
+                onTitleChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "title", e.target.value)}
+                onInputChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "content", e.target.value)}
+                maxLength={100}
+              >
+              </InputAndTitle>
+              {/* <S.RemoveButton onClick={() => ApplyHandlers.handleRemoveInput(input.id)}>삭제</S.RemoveButton> */}
+            </S.inputWrap>
           ))}
 
           {/* 추가 버튼 (최대 3개까지) */}
           {ApplyData.extraInputs.length < 3 && (
-            <S.AddButton onClick={ApplyHandlers.handleAddInput}><S.Icon24 src={plus}/></S.AddButton>
+            <>
+              <S.AddButton onClick={() => ApplyHandlers.handleAddInput("")}>
+                <S.Icon24 src={plus}/>
+              </S.AddButton>
+
+              <S.ExampleContainer>
+                {titleExamples.map((example, index) => (
+                  <S.ExampleButton 
+                  key={`example-${index}`}
+                    onClick={() => handleExampleClick(example)}
+                  >
+                    {example}
+                  </S.ExampleButton>
+                ))}
+              </S.ExampleContainer>
+            </>
           )}
 
           <Footer 
@@ -125,7 +148,7 @@ export const ApplyPage = () => {
           <S.ImageContainer >
             <S.Image80 src={default_image}/>
             <S.IconBox
-              $isSelected={ApplyData.selectedBackgroundColor}
+              $background={ApplyData.selectedBackgroundColor}
             ><S.SelectEmoji>{ApplyData.selectedEmoji}</S.SelectEmoji></S.IconBox>
           </S.ImageContainer>
           <Footer 
@@ -177,6 +200,17 @@ export const ApplyPage = () => {
             onSignupClick={ApplyHandlers.handleApply} 
           />
         </>
+      )}
+      {ApplyData.isApplySuccess && (
+        <ChoiceModal 
+          type={1}
+          ContentTitle={["한라산 등반하기"]}
+          ContentSemiTitle="경험카드를 등록했어요"
+          LeftOnClick={() => goToPage("/main")}
+          LeftContent="메인으로"
+          RightOnClick={() => goToPage("/select")}
+          RightContent="다른카드 열람하기"
+        />
       )}
     </S.Wrapper>
   );
