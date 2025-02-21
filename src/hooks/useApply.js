@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ApplyService } from "@services/ApplyService";
 
 export const useApply = () => {
   const [selectedEmoji, setSelectedEmoji] = useState("");
@@ -13,6 +14,8 @@ export const useApply = () => {
 
   const backgroundColors = ["#F9FFD6", "#FFE7E7", "#D5DDFF", "#EFE5FF"];
   const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(backgroundColors[0]);
+
+  const [isApplySuccess ,setIsApplySuccess] = useState(false);
 
   const handleIconClick = () => {
     setShowPicker((prev) => !prev);
@@ -43,11 +46,11 @@ export const useApply = () => {
     );
   };
 
-  const handleAddInput = () => {
+  const handleAddInput = (title="") => {
     if (extraInputs.length < 3) {
       setExtraInputs((prev) => [
         ...prev,
-        { id: Date.now(), title: "", content: "" },
+        { id: Date.now(), title, content: "" },
       ]);
     }
   };
@@ -69,14 +72,16 @@ export const useApply = () => {
         title: titleValue,
         description: descriptionValue,
         extra: extraInputs,
+        backgroundColor: selectedBackgroundColor,
       });
-  
-      // ✅ 성공 시 입력값 초기화
+
+      setIsApplySuccess(true); // 성공 모달 띄우기
+
       setSelectedEmoji("");
       setTitleValue("");
       setDescriptionValue("");
       setExtraInputs([]);
-      setIsApplySuccess(true); // 성공 모달 띄우기
+      setSelectedBackgroundColor(backgroundColors[0]);
   
     } catch (error) {
       console.error("🚨 경험 카드 등록 실패:", error);
@@ -94,6 +99,7 @@ export const useApply = () => {
     isApplyEnabled,
     selectedBackgroundColor,
     backgroundColors,
+    isApplySuccess,
   };
 
   const ApplyHandlers = {

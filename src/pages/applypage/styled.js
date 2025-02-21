@@ -34,7 +34,7 @@ export const Icon24 = styled.img`
 
 export const ApplyHint = styled.div`
   ${({ theme }) => theme.fonts.PretendardR}
-  width: calc(100% - 60px);
+  width: 85%;
   display: flex;
   justify-content: flex-end;
   font-size: 0.875rem; /* 14px */
@@ -45,7 +45,7 @@ export const ApplyHint = styled.div`
 
 export const Line = styled.div`
   display: flex;
-  width: calc(100% - 60px);
+  width: 85%;
   margin: 1.75rem 0 1.5rem 0;
   height: 1px;
   background: ${({ theme }) => theme.colors.black};
@@ -56,7 +56,7 @@ export const Margin = styled.div`
 `;
 
 export const AddButton = styled.button`
-  width: calc(100% - 60px);
+  width: 85%;
   height: 3.25rem; /* 52px */
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.black};
@@ -64,9 +64,6 @@ export const AddButton = styled.button`
   color: ${({ theme }) => theme.colors.black};
   font-size: 16px;
   cursor: pointer;
-
-  
-  margin-bottom: 5rem;
 `;
 
 export const RemoveButton = styled.button`
@@ -148,7 +145,7 @@ export const IconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${({ $isSelected }) => $isSelected};
+  background: ${({ $background }) => $background};
 `;
 
 export const SelectEmoji = styled.div`
@@ -223,4 +220,36 @@ export const BackDescription = styled.p`
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 11px;
 
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+`;
+
+export const ExampleContainer = styled.div`
+  display: flex;
+  width: 85%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 7rem 0;
+`;
+
+export const ExampleButton = styled.button`
+  background: ${({ theme }) => theme.colors.lightbluegray};
+  color: ${({ theme }) => theme.colors.black};
+  border: 1px solid ${({ theme }) => theme.colors.black};
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.grayback};
+    color: ${({ theme }) => theme.colors.graytext};
+    border: 1px solid ${({ theme }) => theme.colors.graytext};
+  }
+`;
+
+export const inputWrap = styled.div`
+  display: flex;
+  width: 100%;
 `;

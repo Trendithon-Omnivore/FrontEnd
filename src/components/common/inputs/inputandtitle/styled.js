@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
 export const Titlebox = styled.div`
   display: flex;
-  width: calc(100% - 60px);
+  width: 85%;
   justify-content: space-between;
 `;
 
@@ -44,7 +44,7 @@ export const TitleInput = styled.input`
 
 export const InputBox = styled.input`
   display: flex;
-  width: calc(100% - 60px);
+  width: 85%;
   height: 3.25rem; /* 52px */
 
   border-radius: 10px;

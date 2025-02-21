@@ -1,6 +1,6 @@
 import { instance } from "./instance";
 
-export const ApplyService = async ({ emoji, title, description, extra }) => {
+export const ApplyService = async ({ emoji, title, description, extra, backgroundColor }) => {
   // try {
   //   const response = await instance.post("/apply", {
   //     emoji,
@@ -16,7 +16,7 @@ export const ApplyService = async ({ emoji, title, description, extra }) => {
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log("📌 경험 카드 등록 성공:", { emoji, title, description, extra });
+      console.log("📌 경험 카드 등록 성공:", { emoji, title, description, extra, backgroundColor });
       resolve({ success: true }); // ✅ 무조건 성공 응답 반환
     }, 500); // ✅ 0.5초 딜레이 후 성공 처리
   });

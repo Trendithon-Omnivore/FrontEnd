@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  position: ${({ $isSignup }) => $isSignup ? "absolute" : "relative"};
+  position: ${({ $isSignup }) => $isSignup ? "fixed" : "fixed"};
   width: 100%;
   height: 100px;
   bottom: 0;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 60px);
+  width: 85%;
   height: 4rem;
 
   position: absolute;
