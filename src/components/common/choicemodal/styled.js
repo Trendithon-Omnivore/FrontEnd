@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
   left: 0;
   border-radius: 40px 40px 0 0;
   background: url("/images/apply/modalback.svg") lightgray 50% / cover no-repeat;
+
+  z-index: 10;
 `;
 
 export const TouchWrap = styled.div`
@@ -28,7 +30,6 @@ export const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 3rem;
 `;
 
@@ -50,19 +51,21 @@ export const Title = styled.div`
   ${({ theme }) => theme.fonts.PretendardSB}
   font-size: 20px;
   margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
 `;
 
 export const SemiTitle = styled.div`
   ${({ theme }) => theme.fonts.PretendardR}
   font-size: 16px;
+  margin-bottom: 0.5rem;
 `;
 
 export const Contents = styled.div`
   ${({ theme }) => theme.fonts.PretendardR}
   display: flex;
   text-align: center;
+  color: ${({ theme }) => theme.colors.graytext};
   font-size: 14px;
-  margin: 1.5rem 0 3rem 0;
 `;
 
 export const TwoButtonWrap = styled.div`
