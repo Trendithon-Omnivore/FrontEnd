@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   height: 100px;
   bottom: 0;
 
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme, $color }) => $color ? $color : "theme.colors.white"};
   box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.05);
 `;
 

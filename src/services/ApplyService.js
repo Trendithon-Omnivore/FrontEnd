@@ -7,6 +7,7 @@ export const ApplyService = async ({ emoji, title, description, extra, backgroun
   //     title,
   //     description,
   //     extra,
+  //     backgroundColor,
   //   });
   //   return response.data;
   // } catch (error) {
