@@ -37,7 +37,7 @@ export const SelectPage = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: "30px",
+    centerPadding: "20px",
     dots: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
