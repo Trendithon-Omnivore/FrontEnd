@@ -2,7 +2,7 @@ import * as S from "./styled";
 import useLogin from "@hooks/useLogin";
 import { InputwithTitle } from "@components/common/inputs/inputwithtitle/InputwithTitle";
 import { Footer2 } from "@components/layout/footer/footer2/Footer2";
-import { LoginModal } from "@components/common/\bsignupmodal/LoginModal";
+import { LoginModal } from "@components/common/signupmodal/LoginModal";
 
 export const LoginPage = () => {
   const {
