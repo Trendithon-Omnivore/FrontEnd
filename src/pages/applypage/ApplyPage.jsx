@@ -10,6 +10,7 @@ import useCustomNavigate from "@hooks/useCustomNavigate";
 import { ExplainBox } from "@components/common/explainbox/ExplainBox";
 import { IconInput } from "@components/common/inputs/iconinput/IconInput";
 import { InputAndTitle } from "@components/common/inputs/inputandtitle/InputAndTitle";
+import { ExpModal } from "@components/common/expmodal/ExpModal";
 import { FilteringExplainModal } from "@components/common/filteringexplainmodal/FIlteringExplainModal";
 import { Footer } from "@components/layout/footer/footer1/Footer";
 import { ChoiceModal } from "@components/common/choicemodal/ChoiceModal";
@@ -42,7 +43,9 @@ export const ApplyPage = () => {
           <S.ToFiltering onClick={ApplyHandlers.handleModalToggling}>
             말투 필터링에 대해 자세히 알아보기 <S.tofilter src={tofilter}/>
           </S.ToFiltering>
-          <S.ApplyHint><S.Icon20 src={hint}/>경험 작성이 어렵다면?</S.ApplyHint>
+          <S.ApplyHint
+            onClick={ApplyHandlers.handleExpModal}
+          ><S.Icon20 src={hint}/>경험 작성이 어렵다면?</S.ApplyHint>
 
           <IconInput 
             selectedEmoji={ApplyData.selectedEmoji}
@@ -64,7 +67,7 @@ export const ApplyPage = () => {
             placeholder="이 경험에 대하여 자세히 설명해주세요."
             inputValue={ApplyData.descriptionValue} 
             onInputChange={ApplyHandlers.handleDescriptionChange} 
-            maxLength={100} 
+            maxLength={1000} 
           />
 
           <S.Line />
@@ -86,7 +89,7 @@ export const ApplyPage = () => {
                 inputValue={input.content}
                 onTitleChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "title", e.target.value)}
                 onInputChange={(e) => ApplyHandlers.handleExtraInputChange(input.id, "content", e.target.value)}
-                maxLength={100}
+                maxLength={1000}
               >
               </InputAndTitle>
               {/* <S.RemoveButton onClick={() => ApplyHandlers.handleRemoveInput(input.id)}>삭제</S.RemoveButton> */}
@@ -121,6 +124,9 @@ export const ApplyPage = () => {
 
           {ApplyData.isModalOpen && 
             <FilteringExplainModal onClose={ApplyHandlers.handleModalToggling} />
+          }
+          {ApplyData.isExpModal &&
+            <ExpModal onClose={ApplyHandlers.handleExpModal} />
           }
         </>
       )}

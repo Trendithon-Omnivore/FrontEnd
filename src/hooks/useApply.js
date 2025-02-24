@@ -11,6 +11,7 @@ export const useApply = () => {
   const [extraInputs, setExtraInputs] = useState([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isExpModal, setIsExpModal] = useState(false);
 
   const backgroundColors = ["#F9FFD6", "#FFE7E7", "#D5DDFF", "#EFE5FF"];
   const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(backgroundColors[0]);
@@ -36,6 +37,10 @@ export const useApply = () => {
 
   const handleModalToggling = (e) => {
     setIsModalOpen((prev) => !prev);
+  }
+
+  const handleExpModal = (e) => {
+    setIsExpModal((prev) => !prev);
   }
 
   const handleExtraInputChange = (id, field, value) => {
@@ -100,6 +105,7 @@ export const useApply = () => {
     selectedBackgroundColor,
     backgroundColors,
     isApplySuccess,
+    isExpModal,
   };
 
   const ApplyHandlers = {
@@ -113,6 +119,7 @@ export const useApply = () => {
     handleModalToggling,
     handleApply,
     handleBackgroundColorChange,
+    handleExpModal,
   };
 
   return { ApplyData, ApplyHandlers };
