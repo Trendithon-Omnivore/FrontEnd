@@ -42,17 +42,21 @@ export const TitleInput = styled.input`
   }
 `;
 
-export const InputBox = styled.input`
+export const InputBox = styled.textarea`
   display: flex;
   width: 85%;
-  height: 3.25rem; /* 52px */
+  height: ${({ $isTitle }) => ($isTitle == "설명") ? "6rem" : "3.25rem"}; /* 52px */
 
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.black};
 
-  overflow: hidden;
+  overflow-y: ${({ $isTitle }) => ($isTitle == "설명") ? "auto" : "hidden"};
   text-overflow: ellipsis;
   padding: 1rem; /* 16px */
+
+  white-space: pre-wrap; 
+  word-break: break-word;
+  resize: none;
 
   &:focus-visible {
     outline: none;

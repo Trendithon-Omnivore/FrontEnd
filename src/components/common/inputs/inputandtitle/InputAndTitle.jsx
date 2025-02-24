@@ -10,6 +10,11 @@ export const InputAndTitle = ({
   onInputChange, 
   maxLength,
 }) => {
+  const handleInputChange = (e) => {
+    if (e.target.value.length <= maxLength) {
+      onInputChange(e);
+    }
+  }
   return (
     <S.Wrapper>
       <S.Titlebox>
@@ -26,9 +31,10 @@ export const InputAndTitle = ({
         <S.ContentLength>{inputValue.length}/{maxLength}</S.ContentLength>
       </S.Titlebox>
       <S.InputBox
+        $isTitle={title}
         placeholder={placeholder} 
         value={inputValue}
-        onChange={onInputChange} 
+        onChange={handleInputChange} 
       />
     </S.Wrapper>
   );
