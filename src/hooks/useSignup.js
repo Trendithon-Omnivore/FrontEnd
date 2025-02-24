@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AuthService } from "@services/AuthService";
+import { UserService } from "@services/UserService";
 
 const mockNicknames = ["Alice123", "Bob456", "Charlie789", "David007", "Eve321"];
 
@@ -84,9 +85,16 @@ const useSignup = () => {
   const clearPassword = () => setPassword("");
   const clearPasswordConfirm = () => setPasswordConfirm("");
 
-  const generateRandomNickname = () => {
-    const randomNickname = mockNicknames[Math.floor(Math.random() * mockNicknames.length)];
-    setNickname(randomNickname);
+  const generateRandomNickname = async () => {
+    try {
+      console.log("🔄 닉네임 생성 요청 중...");
+      const generatedNickname = await UserService.generateNickname();
+      console.log("✅ 닉네임 생성 성공:", generatedNickname);
+      setNickname(generatedNickname);
+    } catch (error) {
+      console.error("🚨 닉네임 생성 실패:", error.response?.data || error.message);
+      alert("닉네임을 생성할 수 없습니다. 다시 시도해주세요.");
+    }
   };
 
   const isSignupEnabled = 
