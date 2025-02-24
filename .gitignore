@@ -91,3 +91,5 @@ test-results/
 
 # Vercel 폴더 예외 처리
 !.vercel/
+.vercel
+.env*.local

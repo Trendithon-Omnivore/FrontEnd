@@ -46,6 +46,13 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html")
+      }
+    }
+  },
   server: process.env.NODE_ENV === 'development' ? {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
@@ -53,12 +60,20 @@ export default defineConfig({
     },
     proxy: {
       "/api": {
-        target: process.env.VITE_BASE_URL,
+        target: process.env.VITE_BASE_URL || import.meta.env.VITE_BASE_URL,
         changeOrigin: true,
         secure: false, // HTTPS 강제 변환 방지
-      },
+      }
     },
-  } : {},
+  } : {
+    proxy: {
+      "/api": {
+        target: process.env.VITE_BASE_URL || import.meta.env.VITE_BASE_URL,
+        changeOrigin: true,
+        secure: false, // HTTPS 강제 변환 방지
+      }
+    },
+  },
   resolve: {
     alias: {
       '@atoms': path.resolve(__dirname, 'src/atoms'),
