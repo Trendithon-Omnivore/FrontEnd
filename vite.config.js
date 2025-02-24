@@ -4,6 +4,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 import fs from 'fs';
 
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export default defineConfig({
   base: '/',
   plugins: [
@@ -46,6 +50,13 @@ export default defineConfig({
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
       cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
+    },
+    proxy: {
+      "/api": {
+        target: process.env.VITE_BASE_URL,
+        changeOrigin: true,
+        secure: false, // HTTPS 강제 변환 방지
+      },
     },
   } : {},
   resolve: {
