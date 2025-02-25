@@ -7,10 +7,18 @@ export const Header = () => {
   const { goToPage, goBack, goFoward } = useCustomNavigate();
   const location = useLocation();
   const isMagPage = location.pathname === "/main";
+
+  const disabledLogoPaths = ["/", "/signup", "/login"];
+  const isLogoDisabled = disabledLogoPaths.includes(location.pathname);
+
   return (
     <S.Wrapper>
       {!isMagPage && <S.ArrowBack onClick={goBack}></S.ArrowBack> }
-      <S.LogoImage src={Logo} alt="Cardo" onClick={() => goToPage("/main")}/>
+      <S.LogoImage 
+        src={Logo} alt="Cardo" 
+        onClick={!isLogoDisabled ? () => goToPage("/main") : undefined} 
+        $disabled={isLogoDisabled} 
+        />
     </S.Wrapper>
   )
 }

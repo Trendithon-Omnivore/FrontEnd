@@ -18,6 +18,7 @@ export const theme = {
     red: "#FF3B30",
     graytext: "#818181",
     graytext2: "#8F8F8F",
+    bluetext: "#007AFF",
     lightbluegray: "#EBEDF0",
     grayback: "#D9D9D9",
   },
