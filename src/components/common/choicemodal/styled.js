@@ -45,6 +45,8 @@ export const Icon24 = styled.img`
 
 export const thinkEmoji = styled.img`
   width: 61px;
+
+  margin-bottom: ${({ $Type }) => ($Type===3) ? "1rem" : "0"};
 `;
 
 export const Title = styled.div`
@@ -54,10 +56,16 @@ export const Title = styled.div`
   margin-bottom: 0.5rem;
 `;
 
+export const TextWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+`;
+
 export const SemiTitle = styled.div`
   ${({ theme }) => theme.fonts.PretendardR}
   font-size: 16px;
-  margin-bottom: 0.5rem;
 `;
 
 export const Contents = styled.div`
@@ -105,4 +113,8 @@ export const RightButton = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
 
   cursor: pointer;
+`;
+
+export const DateWrap = styled.div`
+  display: flex;
 `;

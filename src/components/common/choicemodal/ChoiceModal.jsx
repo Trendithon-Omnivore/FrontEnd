@@ -11,12 +11,26 @@ export const ChoiceModal = ({ type, onClose, ContentTitle, ContentSemiTitle, Con
     >
       <S.TouchWrap />
       <S.ModalContent>
-        {/* <S.Icon24 src={modalX}/>   */}
+        <S.Icon24 src={modalX} onClick={onClose}/>  
 
         {type===1 &&<S.thinkEmoji src={ApplySuccess}/>}
         {type===2 &&<S.thinkEmoji src={tryStart}/>}
+        {type===3 &&<S.thinkEmoji src={tryStart} $Type={type}/>}
+        {type===4 &&<S.thinkEmoji src={tryStart} $Type={type}/>}
         {ContentTitle && <S.Title>{ContentTitle}</S.Title>}
-        {ContentSemiTitle && <S.SemiTitle>{ContentSemiTitle}</S.SemiTitle>}
+        {ContentSemiTitle && (
+          <S.TextWrap>
+            {Array.isArray(ContentSemiTitle) ? (
+              ContentSemiTitle.map((line, index) => (
+                <S.SemiTitle key={index}>{line}</S.SemiTitle>
+              ))
+            ) : (
+              ContentSemiTitle.split("\n").map((line, index) => (
+                <S.SemiTitle key={index}>{line}</S.SemiTitle>
+              ))
+            )}
+          </S.TextWrap>
+        )}
         {ContentContent && (
           <>
             {Array.isArray(ContentContent) ? (
