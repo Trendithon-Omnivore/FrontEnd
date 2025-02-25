@@ -28,7 +28,8 @@ export const ConTitle = styled.div`
 
 export const Container = styled.input`
   display: flex;
-  width: 85%;
+  width: ${({ $isNick }) => ($isNick === "닉네임" ? "calc(85% - 60px)" : "85%")};
+  margin-right: ${({ $isNick }) => ($isNick === "닉네임" ? "60px" : "0")};
   height: 3.25rem; /* 52px */
   border-radius: 10px;
   border: 1px solid ${({ theme, $errorMessage }) => $errorMessage ? theme.colors.red : theme.colors.black};
