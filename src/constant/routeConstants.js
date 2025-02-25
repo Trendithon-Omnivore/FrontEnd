@@ -1,6 +1,5 @@
 // src/constants/routeConstants.js
 export const ROUTE_PATHS = {
-  HOME: "/",
   MAIN: "/main",
   SIGNUP: "/signup",
   LOGIN: "/login",
@@ -16,7 +15,7 @@ export const ROUTE_PATHS = {
   HOMECHECKFIX:"/home_check_fix",
   HOMEWRITE:"/home_write",
   HOMEWRITEFIX:"/home_write_fix",
-  SPLASH:"/splash",
+  SPLASH:"/",
   MYPAGE:"/mypage",
   ONBOARDING:"/onboarding",
   NOT_FOUND: "*",

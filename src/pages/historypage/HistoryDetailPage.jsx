@@ -45,26 +45,27 @@ const HistoryDetailPage = () => {
             <div className="date_div">
                 <p className="title">경험 기간</p>
                 <div className="calender">
-                    <input type="date" name="" id="" />
+                    <input type="date" value="2025-02-24" />
                     <hr />
-                    <input type="date" name="" id="" />
+                    <input type="date" value="2025-02-25" />
                 </div>
             </div>
             <div className="feel_div">
                 <p className="title">느낀 점</p>
-                <input type="text" className='feel' placeholder='이 경험에서 느낀 점을 자세히 작성해주세요.' />
+                <input type="text" className='feel' placeholder='이 경험에서 느낀 점을 자세히 작성해주세요.' value={"너무 신기했습니다"}/>
                 <div className="img_slide_div">
 
                 </div>
             </div>
             <div className="after_div">
                 <p className="title">발전 방향</p>
-                <textarea className='after_text' rows={1} onChange={autoResizeTextarea}>
-
+                <textarea className='after_text' rows={1} onChange={autoResizeTextarea} value={"앞으로도 더 많이 가봐야겠다."}>
+                    앞으로도 더 많이 가봐야겠다.
                 </textarea>
             </div>
             <div className="history_detail_bottom_div">
                 <div className="next_btn">수정하기</div>
+                
             </div>
 
         </div>

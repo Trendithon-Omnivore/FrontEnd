@@ -6,6 +6,7 @@ import type_arrow from '../../assets/icons/history/type_arrow.svg'
 import close from '../../assets/icons/history/close.svg'
 import icon from '../../assets/icons/history/popup_icon.svg'
 import HistoryList from '@components/history/HistoryList'
+import { MainFooter } from '@components/layout/footer/mainfooter/MainFooter';
 
 const Historypage = () => {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -14,7 +15,7 @@ const Historypage = () => {
     const navigate = useNavigate();
 
     const historyData = [
-        { id: 1, title: '혼자 여행 떠나기', rating: 4.25, experienceType: '내가 따라한 경험' },
+        { id: 1, title: '혼자 여행 떠나기', rating: 4.5, experienceType: '내가 따라한 경험' },
         { id: 2, title: '요리 배우기', rating: 4.5, experienceType: '내가 작성한 경험' },
         { id: 3, title: '마라톤 참가하기', rating: 5.0, experienceType: '내가 따라한 경험' },
       ];
@@ -105,6 +106,7 @@ const Historypage = () => {
             <div className="history_bottom_div">
                 <div className={`next_btn ${selectedHistories.length > 0 ? 'active' : 'inactive'}`} onClick={openPopup}>결산하기</div>
             </div>
+            <MainFooter/>
             {isPopupVisible && (
                 <div className="popup_div">
                     <div className="loading_div">

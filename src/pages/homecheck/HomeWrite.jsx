@@ -9,6 +9,7 @@ import empty_star from '../../assets/icons/history/empty_star.svg'
 import plus from "/images/apply/plus.svg";
 import { InputAndTitle } from "@components/common/inputs/inputandtitle/InputAndTitle";
 import { useSelect } from "@hooks/useSelect";
+import { instance } from '../../services/instance';
 
 const HomeWrite = () => {
     const navigate = useNavigate();
@@ -45,6 +46,16 @@ const HomeWrite = () => {
 
         setStarRatings(updatedStars);
     };
+
+    const calculateScore = () => {
+        let score = 0;
+        starRatings.forEach((rating) => {
+          if (rating === 'full') score += 1;
+          else if (rating === 'half') score += 0.5;
+        });
+        return score;
+      };
+
     const handleImageUpload = (event) => {
         const files = event.target.files;
         const newImages = [];
@@ -87,6 +98,40 @@ const HomeWrite = () => {
     const GotoDone = () => {
         navigate('/history_detail');
     }
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        const score = calculateScore();
+    
+        // ✅ 리뷰 정보 추가
+        formData.append(
+            'createReviewRequest',
+            new Blob(
+              [JSON.stringify({
+                experienceId: 1, // 경험 ID
+                score: score,
+                endDate: endDate,
+                content: feelingText,
+              })],
+              { type: 'application/json' } // 명시적으로 JSON으로 설정
+            )
+          );
+    
+        // ✅ 이미지 파일 추가
+        uploadedImages.forEach((img) => {
+          formData.append('images', img.file);
+        });
+    
+        try {
+          const response = await instance.post('/reviews', formData);
+    
+          if (response.status === 200) {
+            alert('리뷰가 성공적으로 등록되었습니다.');
+            navigate('/history_detail');
+          }
+        } catch (error) {
+          console.error('리뷰 등록 실패:', error);
+        }
+      };
 
     return (
         <div className='home_write_container'>
@@ -130,7 +175,7 @@ const HomeWrite = () => {
                 <div className="calender">
                     <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)}/>
                     <hr />
-                    <input type="date" name="" id="" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
+                    <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)}/>
                 </div>
             </div>
             <div className="feel_div">
@@ -202,7 +247,7 @@ const HomeWrite = () => {
             </div>
 
             <div className="history_detail_bottom_div">
-                <div className={`next_btn ${isFormValid ? 'active' : 'inactive'}`} onClick={GotoDone}>등록하기</div>
+                <div className={`next_btn ${isFormValid ? 'active' : 'inactive'}`} onClick={isFormValid ? handleSubmit : null}>등록하기</div>
             </div>
 
         </div>

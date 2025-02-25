@@ -4,6 +4,7 @@ import mypage2 from '../../assets/icons/history/mypage2.svg'
 import mypage3 from '../../assets/icons/history/mypage3.svg'
 import mypage4 from '../../assets/icons/history/mypage4.svg'
 import mypage_arrow from '../../assets/icons/history/mypage_arrow.svg'
+import { MainFooter } from '@components/layout/footer/mainfooter/MainFooter'
 
 const Mypage = () => {
     return (
@@ -40,6 +41,7 @@ const Mypage = () => {
                 </div>
                 <img src={mypage_arrow} alt="" className="next" />
             </div>
+            <MainFooter/>
 
         </div>
     )

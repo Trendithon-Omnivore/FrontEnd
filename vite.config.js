@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
@@ -57,10 +57,14 @@ export default defineConfig(({mode}) => {
       }
     },
     server: process.env.NODE_ENV === 'development' ? {
-      https: {
+      https:
+        {
         key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
         cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
-      },
+        }
+        ,
+      port: 5173,        // 강제로 5173 포트를 사용
+      strictPort: true,
       proxy: {
         "/api": {
           target: env.VITE_BASE_URL,
