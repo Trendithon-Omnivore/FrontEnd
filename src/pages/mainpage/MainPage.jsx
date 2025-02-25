@@ -1,5 +1,6 @@
 import * as S from "./styled";
 import { useState, useEffect } from "react";
+import YouTube from "react-youtube";
 import Left from "/images/main/Left.svg";
 import Right from "/images/main/Right.svg";
 import Arrow from "/images/main/Arrow.svg";
@@ -7,11 +8,18 @@ import warning from "/images/main/warning.svg";
 import Calendar from "/images/main/Calendar.svg";
 import useCustomNavigate from "@hooks/useCustomNavigate";
 import { MainFooter } from "@components/layout/footer/mainfooter/MainFooter";
-import { instance } from "@services/instance";
 import { UserService } from "@services/UserService";
-import { SelectService } from "@services/SelectService";
 import { ExperienceService } from "@services/ExperienceService";
 import { ChoiceModal } from "@components/common/choicemodal/ChoiceModal";
+
+const youtubeVideos = [
+  { id: "GpNCT9ZSZPk", title: "Rick Astley - Never Gonna Give You Up" },
+  { id: "9FoS-z3vIDI", title: "Queen - Bohemian Rhapsody" },
+];
+const books = [
+  { cover: "/images/books/book1.svg", title: "모두의 알고리즘" },
+  { cover: "/images/books/book2.svg", title: "클린 코드" },
+];
 
 export const MainPage = () => {
   const { goToPage } = useCustomNavigate();
@@ -21,6 +29,7 @@ export const MainPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [dDayText, setDDayText] = useState("");
+  const [randomSlides, setRandomSlides] = useState([]);
 
   useEffect(() => {
     const getUserState = async () => {
@@ -88,6 +97,15 @@ export const MainPage = () => {
     setDDayText(dDayResult);
   };
 
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  useEffect(() => {
+    // 📌 유튜브와 책을 하나의 배열로 합친 후 랜덤으로 섞음
+    const mixedContent = shuffleArray([...youtubeVideos, ...books]);
+    setRandomSlides(mixedContent);
+  }, []);
 
   return (
     <S.Wrapper>
@@ -174,11 +192,24 @@ export const MainPage = () => {
 
         </>
       )}
-      
-
 
       <S.SubTitle>경험의 가치를 알아봐요</S.SubTitle>
 
+      <S.SliderContainer>
+        {randomSlides.map((item, index) => (
+          <S.SlideItem key={index} $type={item.id ? "youtube" : "book"}>
+            {item.id ? (
+              // 📌 유튜브 영상
+              <YouTube videoId={item.id} opts={{ width: "100%", height: "120px" }} />
+            ) : (
+              // 📌 책 표지
+              <>
+                <S.BookCover src={item.cover} alt={item.title} />
+              </>
+            )}
+          </S.SlideItem>
+        ))}
+      </S.SliderContainer>
 
       {isModalOpen && (
         <ChoiceModal

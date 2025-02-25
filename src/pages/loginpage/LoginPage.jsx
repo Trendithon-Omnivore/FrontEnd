@@ -3,6 +3,7 @@ import useLogin from "@hooks/useLogin";
 import { InputwithTitle } from "@components/common/inputs/inputwithtitle/InputwithTitle";
 import { Footer2 } from "@components/layout/footer/footer2/Footer2";
 import { LoginModal } from "@components/common/signupmodal/LoginModal";
+import useCustomNavigate from "@hooks/useCustomNavigate";
 
 export const LoginPage = () => {
   const {
@@ -19,6 +20,7 @@ export const LoginPage = () => {
     isLoginSuccess,
   } = useLogin();
 
+  const { goToPage } = useCustomNavigate();
   return (
     <S.Wrapper>
       <S.SemiTitle>로그인</S.SemiTitle>
@@ -40,6 +42,10 @@ export const LoginPage = () => {
         value={password}
         errorMessage={errors.password}
       />
+
+      <S.Signup
+        onClick={() => goToPage("/signup")}
+      >가입하기</S.Signup>
       <Footer2 
         isLoginEnabled={isLoginEnabled}
         onLoginClick={handleLogin}
