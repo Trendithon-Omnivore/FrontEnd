@@ -165,7 +165,7 @@ export const MainPage = () => {
               <S.CardSubmitArrow src={Arrow} />
             </S.CardSubmit>
             <S.CardSubmit
-              onClick={() => goToPage("/history")}
+              onClick={() => goToPage("/home_write")}
             >
               <S.CardSubmitContent>기록하기</S.CardSubmitContent>
               <S.CardSubmitArrow src={Arrow} />

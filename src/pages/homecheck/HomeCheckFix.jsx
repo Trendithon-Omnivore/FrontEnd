@@ -1,6 +1,6 @@
 import * as S from "./styled.js";
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import card_img_r from '../../assets/icons/history/card_img_r.svg'
 import card_img_l from '../../assets/icons/history/card_img_l.svg'
 import plus from "/images/apply/plus.svg";
@@ -11,7 +11,11 @@ import { useSelect } from "@hooks/useSelect";
 
 const HomeCheckFix = () => {
     const navigate = useNavigate();
+    const location = useLocation(); // ✅ 데이터 받기
+    const { experienceData, startDate: initialStartDate, endDate: initialEndDate } = location.state || {};
     const { SelectData, SelectHandlers } = useSelect();
+    const [startDate, setStartDate] = useState(initialStartDate || '');
+  const [endDate, setEndDate] = useState(initialEndDate || '');
 
     const GotoDone = () => {
         navigate('/home_check');
@@ -19,7 +23,7 @@ const HomeCheckFix = () => {
     return (
         <div className='home_check_fix_container'>
             <p className="page_root">홈 &gt; 확인하기</p>
-            <div className="top_card_div">
+            <div className="top_card_div" style={{ backgroundColor: experienceData ? experienceData.cover : '#FFFFFF' }}>
                 <img src={card_img_l} className="card_img" />
                 <div className="text_div">
                     <p className="bottom">혼자 여행 떠나기</p>
@@ -29,9 +33,9 @@ const HomeCheckFix = () => {
             <div className="date_div">
                 <p className="title">목표 기간</p>
                 <div className="calender">
-                    <input type="date" name="" id="" />
+                    <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
                     <hr />
-                    <input type="date" name="" id="" />
+                    <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                 </div>
             </div>
             <hr className='separate_line' />

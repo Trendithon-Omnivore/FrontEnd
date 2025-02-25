@@ -5,7 +5,7 @@ import { Header } from "@components/layout/header/Header";
 export const DefaultLayout = () => {
   const location = useLocation();
 
-  const isHomePage = location.pathname === "/splash";
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
