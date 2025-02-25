@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 600px;
+  height: 700px;
   flex-direction: column;
   position: fixed;
   bottom: 0;
@@ -22,7 +22,6 @@ export const CloseBack = styled.div`
   height: 100%;
   top:0;
   left: 0;
-
   z-index: -1;
 `;
 
@@ -49,24 +48,44 @@ export const thinkEmoji = styled.img`
 `;
 
 export const Title = styled.div`
-  ${({ theme }) => theme.fonts.PretendardSB}
+  ${({ theme }) => theme.fonts.PretendardSB};
   font-size: 20px;
   margin-top: 0.75rem;
 `;
 
 export const SemiTitle = styled.div`
-  ${({ theme }) => theme.fonts.PretendardR}
+  ${({ theme }) => theme.fonts.PretendardR};
   font-size: 16px;
 `;
 
-export const Contents = styled.div`
-  ${({ theme }) => theme.fonts.PretendardR}
+export const Stairs = styled.div`
   display: flex;
-  text-align: center;
-  font-size: 14px;
-  margin: 1.5rem 0 3rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 1rem 0;
 `;
 
-export const CheckButton = styled.div`
+export const StairTitleB = styled.div`
+  ${({ theme }) => theme.fonts.PretendardR};
+  font-size: 14px;
+  font-weight: 500;
+`;
 
+export const StairTitle = styled.div`
+  ${({ theme }) => theme.fonts.PretendardR};
+  font-size: 14px;
+  font-weight: 400;
+`;
+
+export const StairSemiTitle = styled.div`
+  ${({ theme }) => theme.fonts.PretendardR};
+  color: ${({ theme }) => theme.colors.graytext};
+  font-size: 12px;
+  font-weight: 400;
+`;
+
+export const Image = styled.img`
+  width: 240px;
+  margin-top: 0.5rem;
 `;
