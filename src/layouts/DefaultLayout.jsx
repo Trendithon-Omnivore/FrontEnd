@@ -4,10 +4,13 @@ import { Header } from "@components/layout/header/Header";
 
 export const DefaultLayout = () => {
   const location = useLocation();
+
+  const isHomePage = location.pathname === "/splash";
+
   return (
     <>
       <Wrapper>
-        <Header />
+        {!isHomePage && <Header />}
         <Outlet />
       </Wrapper>
     </>

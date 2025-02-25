@@ -1,0 +1,135 @@
+.splash_container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, #FCFFE1 0%, #FFE7E7 33%, #EFE5FF 66%, #D5DDFF 100%);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .center_div {
+        text-align: center;
+
+        .logo {
+            width: 138px;
+            height: 66px;
+            margin-bottom: 23px;
+        }
+
+        .normal {
+            color: #000;
+            font-family: Pretendard;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            letter-spacing: -0.5px;
+        }
+
+        .text_bottom {
+            display: flex;
+
+            .special {
+                color: var(--white, #FFF);
+                font-family: Pretendard;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 130%;
+                letter-spacing: -0.5px;
+                background-color: #000;
+            }
+        }
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 20px;
+        padding: 0 30px;
+        width: 100%;
+
+        .start_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            padding: 25px 14px;
+            width: 100%;
+            border-radius: 65px;
+            background: #000;
+            color: #FFF;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+        }
+    }
+}
+
+.onboarding_container {
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .center_contents {
+        margin-top: -150px;
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 20px;
+        padding: 0 30px;
+        width: 100%;
+
+        .indicator_dots {
+            height: 40px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin: 30px 0;
+            align-items: center;
+
+            .dot_div {
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+                align-items: center;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin: 0 4px;
+
+                &.active {
+                    background-color: #000;
+                }
+            }
+        }
+
+        .start_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            padding: 25px 14px;
+            width: 100%;
+            border-radius: 65px;
+            background: #000;
+            color: #FFF;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+        }
+    }
+}

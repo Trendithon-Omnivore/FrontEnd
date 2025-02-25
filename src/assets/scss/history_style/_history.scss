@@ -1,0 +1,319 @@
+#historypage_contain {
+    .top_list_style {
+        display: flex;
+        justify-content: space-between;
+        padding: 28px 30px 19px;
+        align-items: center;
+
+        .left_div {
+            display: flex;
+            gap: 9px;
+            align-items: center;
+
+
+        }
+
+        .right_div {
+            display: flex;
+            gap: 10px;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+
+            hr {
+                margin: 0;
+                width: 0px;
+                height: 20px;
+                stroke-width: 1px;
+                color: #D9D9D9;
+            }
+        }
+    }
+
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        color: #000000;
+    }
+
+    .top_text {
+        color: #000000;
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: -0.35px;
+    }
+
+    .top_type_list_div {
+        margin: 0px 30px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        .type_div {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .checkbox {
+                margin-right: 1px;
+            }
+        }
+    }
+
+    .top_list_line {
+        margin: 0px 30px;
+        height: 0;
+        border: 0.5px solid #D9D9D9;
+    }
+
+    .history_list_div {
+        padding: 19px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 70px;
+    }
+
+    .history_bottom_div {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        padding: 7px 30px 0;
+        background-color: #FFF;
+
+        .next_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 25px 16px;
+            height: 60px;
+            border-radius: 65px;
+            background-color: #EBEDF0;
+            color: var(--black, #000);
+            font-family: Pretendard;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 20px;
+
+            &.active {
+                background-color: #000;
+                color: #fff; // 선택된 항목이 있을 때
+            }
+
+            &.inactive {
+                background-color: #EBEDF0; // 선택된 항목이 없을 때
+                color: #000;
+                cursor: not-allowed; // 클릭 방지
+            }
+        }
+    }
+
+    .popup_div {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .loading_div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        border-radius: 40px 40px 0px 0px;
+        width: 100%;
+        height: 344px;
+        z-index: 0;
+        overflow: hidden;
+        background: url(https://s3-alpha-sig.figma.com/img/3cd6/1d34/c0cfc6624ba62569b8157aeb57a9d3bc?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a4qtsBrQkks2nbGDk9v24pkIIs7DmJK1yv-y3tW1bgGQ84UP2T1~ZFmLCC9RPv588IQ~-cxJJkE5PG-s3XI6LafVG6lX4IPqJTjzNrNBGyDYdXSd0t57yyJo~Fy6gz-fOoVJBPLQk6mzjZexgLBC1AK3n0LhrHIjGZWrpQdwd~uCuQeKRYrZ9bQ45Jlgk5vr147l8ls6wTFbTMsUIpcGko0cuI3XmED78~FmUVOmHG8bpfOd3lPoQd8btAsJTE~WkMdQRqu-LMY7VFoA94saAnz1-0A3yhTG7~mfypj0LkfWffKWIqBOoZO9XI-NqSmfym8tQHJK~cO5hnBHmE4Sfw__) lightgray 50% / cover no-repeat;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: inherit; // 부모의 배경 그대로 사용
+            filter: blur(75px); // 블러 처리
+            z-index: 0; // 자식 요소 아래에 위치
+        }
+
+        img {
+            z-index: 1;
+        }
+
+        .close {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 29px;
+            right: 32px;
+        }
+
+        .icon {
+            margin-top: 77px;
+            margin-bottom: 22px;
+            width: 61px;
+            height: 61px;
+        }
+
+        .text {
+            z-index: 1;
+            color: #000;
+            text-align: center;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            letter-spacing: -0.4px;
+            margin-bottom: 3px;
+        }
+
+        div {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn_div {
+            padding: 0 30px;
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                width: 100%;
+                height: 60px;
+                padding: 25px 14px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 65px;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: -0.4px;
+            }
+
+            .cancel {
+
+                background-color: var(--white, #FFF);
+                color: var(--black, #000);
+            }
+
+            .next {
+                background-color: #D9D9D9;
+                color: #818181;
+                cursor: not-allowed;
+            }
+
+            .next.active {
+                background-color: #000; // 활성화된 상태
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.history_list_component {
+    height: 71px;
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
+
+    .left_div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        width: 100%;
+        padding: 16px 30px 14px 30px;
+        border-radius: 10px;
+        background-color: #F9FFD6;
+        cursor: pointer;
+        position: relative; // 선택된 효과가 위에 올라오도록 설정
+        overflow: hidden; // gradient가 넘치지 않도록 설정
+        transition: all 0.3s ease;
+
+        &.selected::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
+            border-radius: 8px;
+            pointer-events: none; // 클릭 이벤트를 막지 않도록 설정
+        }
+
+        &.selected {
+            border: 1px solid #000;
+        }
+
+        .top_title {
+            color: #000;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            letter-spacing: -0.4px;
+        }
+
+        .contents_div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            .star {
+                width: 14px;
+                height: 14px;
+            }
+
+            .star_num {
+                color: #000;
+                font-family: Pretendard;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                letter-spacing: -0.3px;
+            }
+
+            hr {
+                margin: 0;
+                width: 0;
+                height: 12px;
+                border: 0.5px solid #818181;
+            }
+
+            .contents_text {
+                color: var(--black, #000);
+                font-family: Pretendard;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 150%;
+                letter-spacing: -0.3px;
+            }
+
+
+        }
+    }
+
+    .arrow {
+        width: 24px;
+        height: 24px;
+    }
+}

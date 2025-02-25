@@ -1,0 +1,66 @@
+.mypage_container {
+    padding: 33px 30px;
+
+    .top_card {
+        display: inline-flex;
+        height: 71px;
+        padding: 15px 32px 14px 74px;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        border-radius: 10px;
+        background: var(--linear, linear-gradient(90deg, #FCFFE1 0%, #FFE7E7 33%, #EFE5FF 66%, #D5DDFF 100%));
+
+        .text {
+            color: #000;
+            text-align: right;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            letter-spacing: -0.4px;
+        }
+    }
+
+    hr {
+        margin: 22px 0 9px;
+        border-color: #D9D9D9;
+    }
+
+    .part_div {
+        display: flex;
+        width: 100%;
+        height: 46px;
+        padding: 11px 16px 11px 17px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #F8F8F8;
+        margin-bottom: 10px;
+
+        .left {
+            display: flex;
+            gap: 9px;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .title {
+                color: #000;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: -0.4px;
+            }
+        }
+
+        .next {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
