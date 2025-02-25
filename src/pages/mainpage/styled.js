@@ -148,3 +148,40 @@ export const DateBox = styled.div`
   background: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const SliderContainer = styled.div`
+  display: flex;
+
+  transform: translateY(-20px);
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  width: 85%;
+  padding: 10px;
+  -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
+  
+  &::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨김 */
+  }
+`;
+
+export const SlideItem = styled.div`
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: ${({ $type }) => ($type === "youtube" ? "220px" : "160px")};
+  text-align: center;
+`;
+
+export const SlideTitle = styled.div`
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const BookCover = styled.img`
+  width: 82px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+`;
