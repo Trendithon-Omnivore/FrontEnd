@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTE_PATHS.HOME,
-        element: <HomePage />,
+        element: <Onboarding />,
       },
       {
         path: ROUTE_PATHS.MAIN,

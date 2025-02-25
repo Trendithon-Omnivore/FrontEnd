@@ -312,6 +312,7 @@ export const inputWrap = styled.div`
 
 export const DatePickerWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   gap: 8px;
 `;
@@ -321,9 +322,11 @@ export const StyledInput = styled.input`
   padding: 8px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.lightbluegray};
-  color: ${({ theme }) => theme.colors.graytext};
+  color: ${({ theme, $isRight }) => $isRight ? theme.colors.bluetext : theme.colors.graytext};
   cursor: pointer;
 `;
+
+
 
 export const Dash = styled.span`
   font-size: 16px;
