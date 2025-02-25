@@ -61,6 +61,7 @@ Desktop.ini
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+vercel.json
 
 # Parcel, Rollup, and Webpack files
 .cache/
