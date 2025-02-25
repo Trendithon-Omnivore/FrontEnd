@@ -3,7 +3,7 @@ import { useState } from "react";
 import useSignup from "@hooks/useSignup";
 import { InputwithTitle } from "@components/common/inputs/inputwithtitle/InputwithTitle";
 import { Footer } from "@components/layout/footer/footer1/Footer";
-import { SignupModal } from "@components/common/\bsignupmodal/SignupModal";
+import { SignupModal } from "@components/common/signupmodal/SignupModal";
 
 export const SignupPage = () => {
   const {

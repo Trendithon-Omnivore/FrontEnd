@@ -53,6 +53,7 @@ export const useSelect = () => {
   const [step, setStep] = useState(1);
 
   const titleExamples = ["마음가짐", "예산", "계획"];
+  const writetitleExamples = ["좋았던 점", "아쉬웠던 점", "발전 방향"];
   const backgroundColors = ["#F9FFD6", "#FFE7E7", "#D5DDFF", "#EFE5FF"];
   const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(backgroundColors[0]);
 
@@ -149,6 +150,7 @@ export const useSelect = () => {
       isModalOpen,
       step,
       titleExamples,
+      writetitleExamples,
       backgroundColors,
       selectedBackgroundColor,
       extraInputs,

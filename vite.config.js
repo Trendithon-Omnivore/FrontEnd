@@ -43,10 +43,13 @@ export default defineConfig({
     })
   ],
   server: process.env.NODE_ENV === 'development' ? {
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
-    },
+    https: 
+    // {
+    //   key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
+    // }
+    false
+    ,
   } : {},
   resolve: {
     alias: {
