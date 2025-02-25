@@ -25,6 +25,7 @@ export const InputwithTitle = ({
         value={value}
         $errorMessage={errorMessage}
         $readOnly={readOnly}
+        $isNick={title}
       />
       {(title === "비밀번호" || title === "비밀번호 확인") && (
         <>

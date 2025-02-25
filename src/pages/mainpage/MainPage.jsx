@@ -196,11 +196,23 @@ export const MainPage = () => {
       {isModalOpen2 && (
         <ChoiceModal
           type={4}
-          onClose={() => setIsModalOpen2(false)}
+          onClose={() => {
+            if (window.location.pathname === "/main") {
+              window.location.reload(); // ✅ 강제 새로고침
+            } else {
+              goToPage("/main"); // ✅ 다른 페이지라면 main으로 이동
+            }
+          }}
           ContentTitle={"현재 진행 중인 경험을 그만두시겠어요?"}
           ContentSemiTitle={"이 경험을 종료하면 다시 선택할 수 없어요."}
           ContentContent={["'취소'를 원하시면 팝업창을 닫아주세요!"]}
-          LeftOnClick={() => setIsModalOpen2(false)}
+          LeftOnClick={() => {
+            if (window.location.pathname === "/main") {
+              window.location.reload(); // ✅ 강제 새로고침
+            } else {
+              goToPage("/main"); // ✅ 다른 페이지라면 main으로 이동
+            }
+          }}
           LeftContent="메인으로"
           RightOnClick={() => goToPage("/apply")}
           RightContent="새 카드 등록하기"
