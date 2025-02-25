@@ -10,6 +10,8 @@ import { ChoiceModal } from "@components/common/choicemodal/ChoiceModal";
 import { UserExplain } from "@components/common/userexplain/UserExplain";
 import { InputAndTitle } from "@components/common/inputs/inputandtitle/InputAndTitle";
 
+import { formatDate } from "@utils/FormatDate";
+
 import { useSelect } from "@hooks/useSelect";
 import hint from "/images/apply/hint.svg";
 import plus from "/images/apply/plus.svg";
@@ -169,12 +171,15 @@ export const SelectPage = () => {
                 type="date" 
                 value={SelectData.startDate} 
                 onChange={(e) => SelectHandlers.setStartDate(e.target.value)} 
+                readOnly
               />
+              
               <S.Dash>—</S.Dash>
               <S.StyledInput 
                 type="date" 
                 value={SelectData.endDate} 
                 onChange={(e) => SelectHandlers.setEndDate(e.target.value)} 
+                $isRight="true"
               />
             </S.DatePickerWrapper>
 

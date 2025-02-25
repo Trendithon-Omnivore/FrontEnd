@@ -84,26 +84,28 @@ export const closeIcon = styled(TfiClose)`
   cursor: pointer;
 
   position: absolute;
-  top: 13px;
-  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10%;
 
   @media (max-width: 360px) {
     width: 16px;
     height: 16px;
-
-    top: 11px;
-    right: 38px;
   }
 `;
 
 export const ToggleButton = styled.div`
   position: absolute;
-  top: 13px;
-  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(10% + 30px);
 
   @media (max-width: 360px) {
-    top: 11px;
-    right: 60px;
+    width: 16px;
+    height: 16px;
+
+    right: calc(10% + 20px);
+
   }
 `;
 
