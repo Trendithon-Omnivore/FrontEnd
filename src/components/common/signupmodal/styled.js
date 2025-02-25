@@ -36,7 +36,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20.75rem;
+  width: 85%;
   height: 4rem;
 
   position: absolute;

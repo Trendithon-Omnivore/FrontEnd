@@ -3,10 +3,23 @@ import * as S from "./styled";
 import modalX from "/images/apply/modalX.svg";
 import thinkman from "/images/apply/thinkman.svg";
 import { OneButton } from "../buttons/OneButton";
+import { motion } from "framer-motion";
+
+const modalVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { y: "100%", opacity: 0, transition: { duration: 0.3, ease: "easeIn" } },
+};
 
 export const FilteringExplainModal = ({ onClose }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper
+      as={motion.div}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={modalVariants}
+    >
       <S.CloseBack onClick={onClose}/>
 
       <S.ModalContent>

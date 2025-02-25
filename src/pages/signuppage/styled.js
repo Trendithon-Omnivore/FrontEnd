@@ -19,7 +19,7 @@ export const SemiTitle = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  width: 85%;
+  width: 100%;
   position: relative;
 `;
 
@@ -27,7 +27,7 @@ export const IconBox = styled.div`
   display: flex;
   position: absolute;
   top: 0px;
-  right: -28px;
+  right: 7.5%;
   width: 52px;
   height: 52px;
   justify-content: center;

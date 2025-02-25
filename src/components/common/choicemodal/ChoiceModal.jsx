@@ -1,17 +1,30 @@
 import * as S from "./styled";
 
+import { motion } from "framer-motion";
+
 import modalX from "/images/apply/modalX.svg";
 import ApplySuccess from "/images/ApplySuccess.svg";
 import tryStart from "/images/tryStart.svg";
 
+const modalVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { y: "100%", opacity: 0, transition: { duration: 0.3, ease: "easeIn" } },
+};
+
 export const ChoiceModal = ({ type, onClose, ContentTitle, ContentSemiTitle, ContentContent, LeftOnClick, LeftContent, RightOnClick, RightContent}) => {
   return (
     <S.Wrapper
+      as={motion.div}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={modalVariants}
       $height={type}
     >
       <S.TouchWrap />
       <S.ModalContent>
-        <S.Icon24 src={modalX} onClick={onClose}/>  
+        {onClose && <S.Icon24 src={modalX} onClick={onClose}/>  }
 
         {type===1 &&<S.thinkEmoji src={ApplySuccess}/>}
         {type===2 &&<S.thinkEmoji src={tryStart}/>}
