@@ -104,17 +104,14 @@ const HomeWrite = () => {
     
         // ✅ 리뷰 정보 추가
         formData.append(
-            'createReviewRequest',
-            new Blob(
-              [JSON.stringify({
-                experienceId: 1, // 경험 ID
-                score: score,
-                endDate: endDate,
-                content: feelingText,
-              })],
-              { type: 'application/json' } // 명시적으로 JSON으로 설정
-            )
-          );
+          'createReviewRequest',
+          JSON.stringify({
+            experienceId: 1, // 경험 ID (필요 시 동적으로 설정)
+            score: score,
+            endDate: endDate,
+            content: feelingText,
+          })
+        );
     
         // ✅ 이미지 파일 추가
         uploadedImages.forEach((img) => {
@@ -122,7 +119,11 @@ const HomeWrite = () => {
         });
     
         try {
-          const response = await instance.post('/reviews', formData);
+          const response = await instance.post('/reviews', formData, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
     
           if (response.status === 200) {
             alert('리뷰가 성공적으로 등록되었습니다.');

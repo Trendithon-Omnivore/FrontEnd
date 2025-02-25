@@ -25,7 +25,7 @@ const Onboarding = () => {
     };
 
     const GotoStart = () => {
-        navigate('/login');
+        navigate('/signup');
     }
     return (
         <div className='onboarding_container'>
