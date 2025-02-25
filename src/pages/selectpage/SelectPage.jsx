@@ -42,7 +42,9 @@ export const SelectPage = () => {
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
     initialSlide: 1,
-    afterChange: (index) => SelectData.setSelectedCard(SelectData.cards[index]),
+    afterChange: (index) => {
+      SelectData.setSelectedCard(SelectData.cards[index]);
+    },
   };
 
 
@@ -57,13 +59,13 @@ export const SelectPage = () => {
 
           <S.StyledSlider {...sliderSettings}>
             {SelectData.cards.map((card, index) => (
-              <S.CardContainer key={card.id}>
+              <S.CardContainer key={card.id || index}>
                 <S.CardInner $isFlipped={SelectData.flipped[index]} onClick={() => SelectHandlers.handleFlip(index)}>
                   {/* 카드 앞면 */}
                   <S.CardFace className="front">
                     <S.ImageContainer>
                       <S.Image src={default_image} />
-                      <S.IconBox $background={card.backgroundColor}>
+                      <S.IconBox $background={card.cover}>
                         <S.SelectEmoji>{card.emoji}</S.SelectEmoji>
                       </S.IconBox>
                     </S.ImageContainer>
@@ -74,7 +76,7 @@ export const SelectPage = () => {
                     <S.ImageContainer>
                       <S.Image src={default_image} />
                       <S.BackTitle $background={card.backgroundColor}>{card.title}</S.BackTitle>
-                      <S.BackDescription>{card.description}</S.BackDescription>
+                      <S.BackDescription>{card.content}</S.BackDescription>
                     </S.ImageContainer>
                   </S.CardFace>
                 </S.CardInner>
@@ -111,24 +113,24 @@ export const SelectPage = () => {
             subTitle={["경험 선배는 이랬어요."]}
           />
           <S.UserCard
-            $Color = {SelectData.selectedCard.backgroundColor}
+            $Color = {SelectData.selectedCard.cover}
           >
             <S.Icon46>{SelectData.selectedCard.emoji}</S.Icon46>
             <UserExplain 
               titleValue={SelectData.selectedCard.title}
-              contentValue={SelectData.selectedCard.description}            
+              contentValue={SelectData.selectedCard.content}            
             />
 
-           {SelectData.selectedCard?.extra.map((item) => (
+           {/* {SelectData.selectedCard?.extra.map((item) => (
               <UserExplain 
                 key={item.id} // ✅ React의 key 설정
                 titleValue={item.title} // ✅ extra의 title
                 contentValue={item.content} // ✅ extra의 content
               />
-            ))}
+            ))} */}
           </S.UserCard>
           <Footer 
-            content="선택하기"
+            content="계속하기"
             isSignupEnabled={true}
             onSignupClick={SelectHandlers.goToNextStep}
           />
